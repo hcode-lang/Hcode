@@ -1,11 +1,9 @@
-const LIBRARY_BASE_URL = "https://raw.githubusercontent.com/hcode/hcode/main/library/";
-
 let commandMap = [];
 
 async function loadLibrary(name) {
   try {
-    const commands = await fetch(LIBRARY_BASE_URL + name + "/commands.txt").then(r => r.text());
-    const functions = await fetch(LIBRARY_BASE_URL + name + "/functions.txt").then(r => r.text());
+    const commands = await fetch(name + "/commands.txt").then(r => r.text());
+    const functions = await fetch(name + "/functions.txt").then(r => r.text());
 
     const commandLines = commands.trim().split("\n");
     const functionLines = functions.trim().split("\n");
